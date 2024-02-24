@@ -1,3 +1,39 @@
-#homepage {
-  background-color: springgreen;
+html {
+  background-color: #c3fdcc;
+  font-family: "Futura", sans-serif;
+}
+.blurb {
+  font-size: 1.25em;
+}
+
+nav ol {
+  border: 5px solid black;
+  border-style: dotted;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 0;
+  padding-bottom: 0;
+  list-style-type: circle;
+  display: inline-block;
+  text-align: left;
+  line-height: 50px;
+}
+
+a.table {
+  color: saddlebrown;
+  font-size: 2em;
+}
+#athome, #atp0, #atp1, #atp2 {
+  font-weight: bold;
+}
+img {
+  width: 40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 5px double black;
+}
+.caption {
+  text-align: center;
+  color: gray;
 }
