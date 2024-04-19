@@ -6,21 +6,18 @@
     <title>Fancy Fractals!</title>
 </head>
 <body>
-<h1>Koch Curve</h1>
 <div id="basicfancy1">
+<h1>Koch Curve</h1>
   <div id="basic1">
     <h2>Basic curve:</h2>
-    <code>draw_koch(t,4,25)</code>
-    <img src="images/basickoch.png">
+    <img id=basicimg1 src="images2/basickoch.png">
+    <div><code class=line>draw_koch(t,4,25)</code></div>
     <p class="caption">This is the basic Koch curve. At depth 2, it consists of a straight line, two lines that meet at a 60-degree angle, and another straight line.</p>
   </div>
   <div id="fancy1">
     <h2>Modified curve:</h2>
-    <code>koch_2(t,5,30)</code>
-    <img src="images/fancykoch.png">
-    <p class="caption">My modified Koch curve. It consists of 4 segments instead of 5, and segments meet at 90-degree angles instead of 60-degree ones. The width also varies randomly with depth, and the size decreases as the depth increases.</p>
-    <img src="images/fancykoch2.png">
-    <p class="caption">The modified Koch curve at depth 2.</p>
+    <div id=fancycode1>
+    <img id=fancyimg1 src="images2/fancykoch.png">
     <pre>
       <code>
         def koch_2(t,depth,length):
@@ -39,92 +36,110 @@
           koch_2(t,depth-1,length*0.75)
       </code>
     </pre>
+    </div>
+    <div id=fancyblurb1>
+      <code class=line>koch_2(t,5,30)</code>
+      <p class="caption">My modified Koch curve. It consists of 4 segments instead of 5, and segments meet at 90-degree angles instead of 60-degree ones. The width also varies randomly with depth, and the size decreases as the depth increases.</p>
+    </div>
   </div>
 </div>
 
 <h1>Sierpinski Triangle</h1>
-<h2>Basic triangle:</h2>
-<code>sierpinski(t,4,30)</code>
-<img src="images/basicsierpinski.png">
-<p class="caption">This is the basic Sierpinski triangle. At depth 2, it consists of 3 equilateral triangles that form a larger equilateral triangle together.</p>
-<h2>Modified triangle:</h2>
-<code>sierpinski_star(t,4,100)</code>
-<img src="images/fancysierpinski.png">
-<p class="caption">My modified Sierpinski triangle. The base is an isosceles triangle with base angles of 72 degrees instead of an equilateral triangle, and for depths greater than 1 the constituent triangles are red, green, and blue. My program actually draws 5 Sierpinski triangles of the given depth at 108 degrees to each other, creating a five-pointed star.</p>
-<pre>
-  <code>
-    def triangle2(t,size):
-      t.lt(72)
-      t.fd(size)
-      t.rt(144)
-      t.fd(size)
-      t.rt(108)
-      t.fd(size*0.618)
-      t.rt(180)
-  </code>
-  <code>
-    def sierpinski_2(t,depth,length):
-    if depth==1:
-        triangle2(t,length)
-    elif depth>1:
-        t.pencolor(255,0,0)
-        sierpinski_2(t,depth-1,length/2)
-        t.fd(length*0.5*0.618)
-        t.pencolor(0,255,0)
-        sierpinski_2(t,depth-1,length/2)
-        t.bk(length*0.5*0.618)
+<div id=basic2>
+  <h2>Basic triangle:</h2>
+  <img src="images2/basicsierpinski.png">
+  <div><code class=line>sierpinski(t,4,30)</code></div>
+  <p class="caption">This is the basic Sierpinski triangle. At depth 2, it consists of 3 equilateral triangles that form a larger equilateral triangle together.</p>
+</div>
+<div id=fancy2>
+  <h2>Modified triangle:</h2>
+  <div id=fancycode2>
+  <img src="images2/fancysierpinski.png">
+  <pre>
+    <code>
+      def triangle2(t,size):
         t.lt(72)
-        t.fd(length/2)
-        t.rt(72)
-        t.pencolor(0,0,255)
-        sierpinski_2(t,depth-1,length/2)
+        t.fd(size)
+        t.rt(144)
+        t.fd(size)
         t.rt(108)
-        t.pencolor(255,0,0)
-        t.fd(length/2)
-        t.lt(108)
-  </code>
-  <code>
-    def sierpinski_star(t,depth,length):
-    i=0
-    while i<5:
-        sierpinski_2(t,depth,length)
-        t.fd(length*0.618)
-        t.rt(72)
-        i+=1
-  </code>
-</pre>
+        t.fd(size*0.618)
+        t.rt(180)
+
+      def sierpinski_2(t,depth,length):
+        if depth==1:
+          triangle2(t,length)
+        elif depth>1:
+          t.pencolor(255,0,0)
+          sierpinski_2(t,depth-1,length/2)
+          t.fd(length*0.5*0.618)
+          t.pencolor(0,255,0)
+          sierpinski_2(t,depth-1,length/2)
+          t.bk(length*0.5*0.618)
+          t.lt(72)
+          t.fd(length/2)
+          t.rt(72)
+          t.pencolor(0,0,255)
+          sierpinski_2(t,depth-1,length/2)
+          t.rt(108)
+          t.pencolor(255,0,0)
+          t.fd(length/2)
+          t.lt(108)
+
+        def sierpinski_star(t,depth,length):
+          i=0
+          while i<5:
+            sierpinski_2(t,depth,length)
+            t.fd(length*0.618)
+            t.rt(72)
+            i+=1
+      </code>
+  </pre>
+  </div>
+  <div id=fancyblurb2>
+    <code class=line>sierpinski_star(t,4,100)</code>
+    <p class="caption">My modified Sierpinski triangle. The base is an isosceles triangle with base angles of 72 degrees instead of an equilateral triangle, and for depths greater than 1 the constituent triangles are red, green, and blue. My program actually draws 5 Sierpinski triangles of the given depth at 108 degrees to each other, creating a five-pointed star.</p>
+  </div>
+</div>
 
 <h1>Fractal Tree</h1>
-<h2>Basic tree:</h2>
-<code>tree(t,5,50,20)</code>
-<img src="images/basictree.png">
-<p class="caption">This is a basic fractal tree. At depth 2, it consists of a straight line from which 2 other "branches" diverge, each at an angle to the fist line.</p>
-<h2>Modified tree:</h2>
-<code>tree_2(t,6,100,60)</code>
-<img src="images/fancytree.png">
-<p class="caption">My modified fractal tree. Each line diverges into 5 branches instead of 2, the length of the branches decreases as depth increases, and the color varies randomly with depth.</p>
-<pre>
-  <code>
-    def tree_2(t,depth,length,angle):
-    if depth==1:
-        t.fd(length)
-        t.bk(length)
-    elif depth>1:
-        color=random_color()
-        t.pencolor(color)
-        t.fd(length)
-        tree_2(t,depth-1,length*0.5,angle)
-        t.rt(angle)
-        tree_2(t,depth-1,length*0.5,angle)
-        t.rt(angle)
-        tree_2(t,depth-1,length*0.5,angle)
-        t.lt(3*angle)
-        tree_2(t,depth-1,length*0.5,angle)
-        t.lt(angle)
-        tree_2(t,depth-1,length*0.5,angle)
-        t.rt(2*angle)
-        t.bk(length)
-  </code>
-</pre>
+<div id=basic3>
+  <h2>Basic tree:</h2>
+  <img src="images2/basictree.png">
+  <div><code class=line>tree(t,5,50,20)</code></div>
+  <p class="caption">This is a basic fractal tree. At depth 2, it consists of a straight line from which 2 other "branches" diverge, each at an angle to the fist line.</p>
+</div>
+<div id=fancy3>
+  <h2>Modified tree:</h2>
+  <div id=fancycode3>
+  <img src="images2/fancytree.png">
+  <pre>
+    <code>
+      def tree_2(t,depth,length,angle):
+      if depth==1:
+          t.fd(length)
+          t.bk(length)
+      elif depth>1:
+          color=random_color()
+          t.pencolor(color)
+          t.fd(length)
+          tree_2(t,depth-1,length*0.5,angle)
+          t.rt(angle)
+          tree_2(t,depth-1,length*0.5,angle)
+          t.rt(angle)
+          tree_2(t,depth-1,length*0.5,angle)
+          t.lt(3*angle)
+          tree_2(t,depth-1,length*0.5,angle)
+          t.lt(angle)
+          tree_2(t,depth-1,length*0.5,angle)
+          t.rt(2*angle)
+          t.bk(length)
+    </code>
+  </pre>
+</div>
+<div id=fancyblurb3>
+  <code class=line>tree_2(t,6,100,60)</code>
+  <p class="caption">My modified fractal tree. Each line diverges into 5 branches instead of 2, the length of the branches decreases as depth increases, and the color varies randomly with depth.</p>
+</div>
 </body>
 </html>

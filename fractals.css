@@ -1,9 +1,64 @@
-
-
-h1,h2 {
-  font-family: "Apple Chancery";
+#basic1, #basic2, #basic3 {
+  float:left;
+  padding-left:5em;
+  padding-right:2em;
+  width:35em;
+  margin-bottom:10em;
 }
-
+#fancy1, #fancy2, #fancy3 {
+  float:right;
+  padding-top:none;
+  padding-left:2em;
+  padding-right:5em;
+  width:35em;
+}
+h1,h2 {
+  font-family: "Times New Roman",serif;
+  font-size:2em;
+}
 h1 {
-  font-weight:bold;
+  font-variant:small-caps;
+}
+img {
+  width:20em;
+  dispay:block;
+  border-style:dotted;
+  border-width:thick;
+  border-color:indigo;
+}
+html {
+  font-family: "Times New Roman",serif;
+  background-color:darkseagreen;
+}
+#basic1 img {
+  width:26.4em;
+}
+#fancycode1 img, #fancycode2 img, #fancycode3 img {
+  float:left;
+  margin-right:none;
+  margin-bottom:0.5em;
+}
+#fancycode1 code, #fancycode2 code, #fancycode3 code {
+  float:right;
+}
+#fancyblurb1 {
+  padding-top:8em;
+}
+#fancyblurb2 {
+  padding-top:17em;
+}
+#basic2 img {
+  width:23em;
+}
+#basic2 {
+  margin-bottom:32em;
+}
+#fancyblurb3 {
+  padding-top:20em;
+}
+#basic3 img {
+  width:26.5em;
+}
+.line {
+  color:indigo;
 }
