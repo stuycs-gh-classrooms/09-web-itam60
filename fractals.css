@@ -1,32 +1,9 @@
 
-#basic1 {
-  float:left;
-  width: 30em;
-  padding-right:2em;
-  padding-left: 7em;
-  margin-right:5em;
-}
-#fancy1 {
-  float:right;
-  width: 30em;
-  padding-left:2em;
-  padding-right:7em;
-  margin-top:none;
-  margin-right: 5em;
-}
-#basic1, #fancy1 {
-  display: block;
-}
-img {
-  width: 20em;
-}
+
 h1,h2 {
-  width:15em;
-  font-family: "American Typewriter",serif;
-  display:block;
+  font-family: "Apple Chancery";
 }
 
 h1 {
   font-weight:bold;
-  font-variant:small-caps;
 }
