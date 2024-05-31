@@ -12,10 +12,7 @@ HTML_HEADER = """
 
 <head>
 <meta charset="utf-8">
-<title>"""+guess+"""
-</title>
-</head>
-"""
+<title>"""
 
 HTML_FOOTER = """
 </body>
@@ -32,8 +29,11 @@ if ('faveanimal' in data):
     faveanimal = data['faveanimal'].value
 
 html= HTML_HEADER
-#html+= '<body style="background-color: '
-#html+= bgcolor + ';">'
+html+= guess
+html+= """
+</title>
+</head>
+"""
 html+= '<h1>Hello ' + faveanimal + '</h1>'
 html+= '<br><a href="test0.html">Try Again</a>'
 html+= HTML_FOOTER
