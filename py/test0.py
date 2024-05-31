@@ -26,12 +26,10 @@ HTML_FOOTER = """
 
 
 data = cgi.FieldStorage()
-name = 'batman'
-if ('name' in data):
-    name = data['name'].value
-bgcolor = 'DarkSeaGreen'
-if ('bgcolor' in data):
-    bgcolor = data['bgcolor'].value
+if ('guess' in data):
+    guess = data['guess'].value
+if ('faveanimal' in data):
+    faveanimal = data['faveanimal'].value
 
 html= HTML_HEADER
 #html+= '<body style="background-color: '
