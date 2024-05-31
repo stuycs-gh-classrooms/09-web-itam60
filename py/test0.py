@@ -5,6 +5,8 @@ import cgitb #
 cgitb.enable() #These 2 lines will allow error messages to appear on a web page in the browser
 
 import cgi
+guess="form?"
+faveanimal="fish"
 
 HTML_HEADER = """
 <!DOCTYPE html>
@@ -12,7 +14,7 @@ HTML_HEADER = """
 
 <head>
 <meta charset="utf-8">
-<title>""",guess,"""
+<title>"""+guess+"""
 </title>
 </head>
 """
