@@ -2,6 +2,14 @@
 print("Content-type: text/html\n")
 
 from random import random
-print("""<body style="background-color:pink;">""")
 r=random()
-print("Lucky number: ",r)
+print('''
+<html>
+<head><title>random w38</title></head>
+<body style='background-color:springgreen';>
+<p>
+Lucky number: ''',r,'''
+<a href="https://stuy.enschool.org">Click here!</a>
+</p>
+</body>
+</html>''')
