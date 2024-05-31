@@ -5,8 +5,6 @@ import cgitb #
 cgitb.enable() #These 2 lines will allow error messages to appear on a web page in the browser
 
 import cgi
-guess="form?"
-faveanimal="fish"
 
 HTML_HEADER = """
 <!DOCTYPE html>
@@ -26,8 +24,10 @@ HTML_FOOTER = """
 
 
 data = cgi.FieldStorage()
+guess="form?!"
 if ('guess' in data):
     guess = data['guess'].value
+faveanimal="fish"
 if ('faveanimal' in data):
     faveanimal = data['faveanimal'].value
 
