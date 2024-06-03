@@ -59,16 +59,6 @@ for x in scrambledict:
     html+="<input class='styled' type='button' name='click1' value='"+scrambledict[x]+"'>"
 html+="</form>"
 
-data1=cgi.FieldStorage()
-click0='1'
-if ('click0' in data1):
-    click0 = data['click0'].value
-click1='methyl'
-if ('click1' in data):
-    click1 = data['click1'].value
-correct=0
-if answerdict[click0]==click1 or answerdict[click1]==click0:
-    correct+=1
 html+=str(correct)
 html+= '<br><a href="test0.html">Try Again</a>'
 html+= HTML_FOOTER
