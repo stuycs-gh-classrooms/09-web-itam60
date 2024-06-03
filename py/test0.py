@@ -1,6 +1,7 @@
 #!/usr/bin/python
 print('Content-type: text/html\n')
 
+import random
 import cgitb #
 cgitb.enable() #These 2 lines will allow error messages to appear on a web page in the browser
 
@@ -38,10 +39,12 @@ html=HTML_HEADER
 html+="<h1>Quiz below</h1>"+"\n"
 termslist=terms.split(',')
 deflist=definitions.split(',')
-i=0
-while i<len(termslist):
-    html+=termslist[i]+': '+deflist[i]+'<br>'
-    i+=1
+i0=0
+i1=0
+while len(termslist)>0:
+    i0=random.randint(0,len(termslist)-1)
+    i1=random.randint(0,len(deflist)-1)
+    html+=termslist.pop(i0)+': '+deflist.pop(i1)+'<br>'
 html+= '<br><a href="test0.html">Try Again</a>'
 html+= HTML_FOOTER
 print(html)
