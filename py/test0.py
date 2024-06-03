@@ -59,7 +59,6 @@ for x in scrambledict:
     html+="<input class='styled' type='button' name='click1' value='"+scrambledict[x]+"'>"
 html+="</form>"
 
-html+=str(correct)
 html+= '<br><a href="test0.html">Try Again</a>'
 html+= HTML_FOOTER
 print(html)
