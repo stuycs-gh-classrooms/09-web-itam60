@@ -20,16 +20,15 @@ HTML_FOOTER = """
 </body>
 </html>
 """
-terms='a,b,c,d'
-definitions='1,2,3,4'
+
 
 data = cgi.FieldStorage()
-#guess="form?!"
-#if ('guess' in data):
-#    guess = data['guess'].value
-#faveanimal="fish"
-#if ('faveanimal' in data):
-#    faveanimal = data['faveanimal'].value
+terms='a,b,c,d'
+if ('terms' in data):
+    terms = data['terms'].value
+definitions='1,2,3,4'
+if ('definitions' in data):
+    definitions = data['definitions'].value
 html=HTML_HEADER
 #html+= guess
 #html+= """
