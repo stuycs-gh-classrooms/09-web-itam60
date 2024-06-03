@@ -24,12 +24,14 @@ HTML_FOOTER = """
 
 
 data = cgi.FieldStorage()
-terms='a,b,c,d'
 if ('terms' in data):
     terms = data['terms'].value
-definitions='1,2,3,4'
+else:
+    terms='a,b,c,d'
 if ('definitions' in data):
     definitions = data['definitions'].value
+else:
+    definitions='1,2,3,4'
 html=HTML_HEADER
 #html+= guess
 #html+= """
@@ -55,21 +57,32 @@ html+="""
 <form action='test0.py' method='GET'>
 """
 for x in scrambledict:
-    html+="<input class='styled' type='button' name='click0' value='"+x+"'>"
+    html+="<input type='button' name='click0' value='"+x+"'>"
     html+="<input class='styled' type='button' name='click1' value='"+scrambledict[x]+"'>"
 html+="<br><input type='submit' name='submit'>"
 html+="</form>"
+
 data=cgi.FieldStorage()
 click0='1'
 if ('click0' in data):
     click0 = data['click0'].value
+<<<<<<< HEAD
 click1='methyl'
 if ('click1' in data):
     click1 = data['click1'].value
+=======
+else:
+    click0='1'
+if ('click1' in data):
+    click1 = data['click1'].value
+else:
+    click1='a'
+>>>>>>> eac3c9db53f33cb0197523bcdf94c8ffd8d37daf
 testdict={}
 testdict[click0]=click1
 if testdict[click0] in answerdict:
     html+='<p>Correct!</p>'
+
 html+= '<br><a href="test0.html">Try Again</a>'
 html+= HTML_FOOTER
 print(html)
