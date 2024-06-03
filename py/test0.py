@@ -57,14 +57,20 @@ html+="""
 for x in scrambledict:
     html+="<input class='styled' type='button' name='click0' value='"+x+"'>"
     html+="<input class='styled' type='button' name='click1' value='"+scrambledict[x]+"'>"
+html+="<br><input type='submit' name='submit'>"
 html+="</form>"
 data=cgi.FieldStorage()
+click0='1'
 if ('click0' in data):
     click0 = data['click0'].value
+click1='methyl'
 if ('click1' in data):
     click1 = data['click1'].value
-if answerdict[click0]==click1:
+testdict={}
+testdict[click0]=click1
+if testdict[click0] in answerdict:
     html+='<p>Correct!</p>'
 html+= '<br><a href="test0.html">Try Again</a>'
 html+= HTML_FOOTER
 print(html)
+
