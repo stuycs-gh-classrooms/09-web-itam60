@@ -59,10 +59,8 @@ for x in scrambledict:
     html+="<input class='styled' type='button' name='click1' value='"+scrambledict[x]+"'>"
 html+="</form>"
 data=cgi.FieldStorage()
-click0='a'
 if ('click0' in data):
     click0 = data['click0'].value
-click1='1'
 if ('click1' in data):
     click1 = data['click1'].value
 if answerdict[click0]==click1:
