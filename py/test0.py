@@ -41,10 +41,16 @@ termslist=terms.split(',')
 deflist=definitions.split(',')
 i0=0
 i1=0
+scrambledict={}
 while len(termslist)>0:
     i0=random.randint(0,len(termslist)-1)
     i1=random.randint(0,len(deflist)-1)
-    html+=termslist.pop(i0)+': '+deflist.pop(i1)+'<br>'
+    scrambledict[termslist.pop(i0)]=deflist.pop(i1)
+for x in scrambledict:
+    html+="<input class='styled' type='button' value='"+x+"'>"
+    html+='<br>'
+    html+="<input class='styled' type='button' value='"+scrambledict[x]+"'>"
+    html+='<br>'
 html+= '<br><a href="test0.html">Try Again</a>'
 html+= HTML_FOOTER
 print(html)
