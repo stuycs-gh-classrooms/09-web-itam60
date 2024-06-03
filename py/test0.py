@@ -40,7 +40,7 @@ termslist=terms.split(',')
 deflist=definitions.split(',')
 i=0
 while i<len(termslist):
-    html+=termslist[i]+': '+deflist[i]+'\n'
+    html+=termslist[i]+': '+deflist[i]+'<br>'
     i+=1
 html+= '<br><a href="test0.html">Try Again</a>'
 html+= HTML_FOOTER
