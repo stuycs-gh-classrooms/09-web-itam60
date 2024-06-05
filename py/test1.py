@@ -23,8 +23,8 @@ HTML_FOOTER = """
 """
 html=HTML_HEADER
 answerdict={'1':'a','2':'b','3':'c','4':'d'}
-data=cgi.FieldStorage()
 
+data=cgi.FieldStorage()
 if ('click0' in data):
     click0 = data['click0'].value
 else:
@@ -33,10 +33,10 @@ if ('click1' in data):
     click1 = data['click1'].value
 else:
     click1='a'
-testdict={}
-testdict[click0]=click1
-if testdict[click0] in answerdict:
-    html+='<p>Correct!</p>'
-html+='ughhhhh'
+#testdict={}
+#testdict[click0]=click1
+#if testdict[click0] in answerdict:
+    #html+='<p>Correct!</p>'
+html+=data
 html+= HTML_FOOTER
 print(html)
