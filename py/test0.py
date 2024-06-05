@@ -59,9 +59,9 @@ html+="""
 boxpair=0
 for x in scrambledict:
     pairnum=str(boxpair)
-    html+=x+"<input type='button' id='term"+pairnum+"' name='click0'>"
+    html+="<input type='button' id='term"+pairnum+"' name='click0' value='"+x+"'>"
     #html+="<label for='term"+pairnum+"'>"+x+"</label><br>"
-    html+=scrambledict[x]+"<input type='button' id='def"+pairnum+"' name='click1'>"
+    html+="<input type='button' id='def"+pairnum+"' name='click1' value='"+scrambledict[x]+"'>"
     #html+="<label for 'def"+pairnum+"'>"+scrambledict[x]+"</label><br>"
     boxpair+=1
 html+="<input type='submit' name='submit'>"
