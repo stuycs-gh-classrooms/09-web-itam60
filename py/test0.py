@@ -59,6 +59,7 @@ html+="""
 for x in scrambledict:
     html+="<input type='button' name='click0' value='"+x+"'>"
     html+="<input class='styled' type='button' name='click1' value='"+scrambledict[x]+"'>"
+html+="<input type='submit' name='submit'>"
 html+="</form>"
 
 data=cgi.FieldStorage()
