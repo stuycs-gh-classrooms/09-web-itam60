@@ -37,6 +37,6 @@ else:
 #testdict[click0]=click1
 #if testdict[click0] in answerdict:
     #html+='<p>Correct!</p>'
-html+=data
+html+=str(data)
 html+= HTML_FOOTER
 print(html)
