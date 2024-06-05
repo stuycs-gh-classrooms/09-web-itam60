@@ -56,13 +56,16 @@ while len(termslist)>0:
 html+="""
 <form action='test0.py' method='GET'>
 """
+boxpair=0
 for x in scrambledict:
-    html+="<input type='button' name='click0' value='"+x+"'>"
-    html+="<input class='styled' type='button' name='click1' value='"+scrambledict[x]+"'>"
+    html+="<input type='checkbox' name='"+str(boxpair)+"' value='"+x+"'>"
+    html+="<input type='checkbox' name='"+str(boxpair)+"' value='"+scrambledict[x]+"'>"
+    boxpair+=1
 html+="<input type='submit' name='submit'>"
 html+="</form>"
 
 data=cgi.FieldStorage()
+"""
 if ('click0' in data):
     click0 = data['click0'].value
 else:
@@ -75,7 +78,7 @@ testdict={}
 testdict[click0]=click1
 if testdict[click0] in answerdict:
     html+='<p>Correct!</p>'
-
+"""
 html+= '<br><a href="test0.html">Try Again</a>'
 html+= HTML_FOOTER
 print(html)
