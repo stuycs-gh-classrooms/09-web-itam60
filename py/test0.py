@@ -58,8 +58,11 @@ html+="""
 """
 boxpair=0
 for x in scrambledict:
-    html+="<input type='checkbox' name='"+str(boxpair)+"' value='"+x+"'>"
-    html+="<input type='checkbox' name='"+str(boxpair)+"' value='"+scrambledict[x]+"'>"
+    pairnum=str(boxpair)
+    html+="<input type='checkbox' id='term"+pairnum+"' name='"+pairnum+"' value='"+x+"'>"
+    html+="<label for='term"+pairnum+"'>"+x+"</label><br>"
+    html+="<input type='checkbox' id='def"+pairnum+"' name='"+pairnum+"' value='"+scrambledict[x]+"'>"
+    html+="<label for 'def"+pairnum+"'>"+scrambledict[x]+"</label><br>"
     boxpair+=1
 html+="<input type='submit' name='submit'>"
 html+="</form>"
