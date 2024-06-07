@@ -25,18 +25,26 @@ html=HTML_HEADER
 answerdict={'1':'a','2':'b','3':'c','4':'d'}
 
 data=cgi.FieldStorage()
-if ('click0' in data):
-    click0 = data['click0'].value
-else:
-    click0='1'
-if ('click1' in data):
-    click1 = data['click1'].value
-else:
-    click1='a'
+boxpair=1
+while boxpair<4:
+    pairnum=str(boxpair)
+    tempterm='term'+pairnum
+    if tempterm in data:
+        tempterm=data['term'+pairnum].value
+    else:
+        tempterm=pairnum
+    tempdef='def'+pairnum
+    if tempdef in data:
+        tempdef=data['def'+pairnum].value
+    else:
+        tempterm=answerdict[pairnum]
+    answerdict[tempterm]=tempdef
+    boxpair+=1
+        
 #testdict={}
 #testdict[click0]=click1
 #if testdict[click0] in answerdict:
     #html+='<p>Correct!</p>'
-html+=click0+click1
+html+=str(answerdict)
 html+= HTML_FOOTER
 print(html)
