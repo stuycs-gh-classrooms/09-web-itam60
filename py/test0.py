@@ -59,29 +59,11 @@ html+="""
 boxpair=0
 for x in scrambledict:
     pairnum=str(boxpair)
-    html+="<input type='checkbox' id='term"+pairnum+"' value='"+x+"'>"
-    html+="<label for='term"+pairnum+"'>"+x+"</label><br>"
-    html+="<input type='checkbox' id='def"+pairnum+"' value='"+scrambledict[x]+"'>"
-    html+="<label for 'def"+pairnum+"'>"+scrambledict[x]+"</label><br>"
+    html+="<h2>Term:"+x
+    html+="<input type='text' name=answerdef'"+pairnum+"><br>"
     boxpair+=1
 html+="<input type='submit' name='submit'>"
 html+="</form>"
-"""
-data=cgi.FieldStorage()
-
-if ('click0' in data):
-    click0 = data['click0'].value
-else:
-    click0='1'
-if ('click1' in data):
-    click1 = data['click1'].value
-else:
-    click1='a'
-testdict={}
-testdict[click0]=click1
-if testdict[click0] in answerdict:
-    html+='<p>Correct!</p>'
-"""
 
 html+= '<br><a href="test0.html">Try Again</a>'
 html+= HTML_FOOTER
