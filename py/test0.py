@@ -58,10 +58,8 @@ html+="""
 """
 boxpair=0
 for x in scrambledict:
-    pairnum=str(boxpair)
     html+="<h2>Term:"+x
-    html+="<input type='text' name=answerdef'"+pairnum+"><br>"
-    boxpair+=1
+    html+="<input type='text' name='"+x+"'><br>"
 html+="<input type='submit' name='submit'>"
 html+="</form>"
 

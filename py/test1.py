@@ -22,21 +22,38 @@ HTML_FOOTER = """
 </html>
 """
 html=HTML_HEADER
-terms=['1','2','3','4']
+
+data = cgi.FieldStorage()
+if ('terms' in data):
+    terms = data['terms'].value
+else:
+    terms='a,b,c,d'
+if ('definitions' in data):
+    definitions = data['definitions'].value
+else:
+    definitions='1,2,3,4'
+    
+termslist=terms.split(',')
+deflist=definitions.split(',')
+e=0
 answerdict={}
+while e<len(termslist):
+    answerdict[termslist[e]]=deflist[e]
+    e+=1
+
 data=cgi.FieldStorage()
 boxpair=0
 numright=0
-while boxpair<len(terms):
-    pairnum=str(boxpair+1)
-    searchanswer='answerdef'+pairnum
+while boxpair<len(termslist):
+    searchanswer=termslist[boxpair]
     if searchanswer in data:
-        searchanswer=data[searchanswer].values
+        searchanswer=data[searchanswer].value
     else:
         searchanswer='q'
-    if terms[boxpair]==searchanswer:
+    if answerdict[termslist[boxpair]]==searchanswer:
         numright+=1
     boxpair+=1
+html+=str(termslist)
 html+="<p> Number Correct: "+str(numright)+"!</p>"
 html+= HTML_FOOTER
 print(html)
