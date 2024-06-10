@@ -41,7 +41,6 @@ while e<len(termslist):
     answerdict[termslist[e]]=deflist[e]
     e+=1
 
-data=cgi.FieldStorage()
 boxpair=0
 numright=0
 while boxpair<len(termslist):
