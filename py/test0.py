@@ -58,7 +58,7 @@ html+="""
 """
 
 for x in scrambledict:
-    html+="<h2>Term:"+x
+    html+="<h2>Term: "+x
     html+="<input type='text' name='"+x+"'><br>"
 html+="<input type='hidden' name='terms' value='"+terms+"'>"
 html+="<input type='hidden' name='definitions' value='"+definitions+"'>"

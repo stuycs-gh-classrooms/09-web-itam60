@@ -45,17 +45,19 @@ while e<len(termslist):
 data=cgi.FieldStorage()
 answerdict={}
 ignore=['submit','terms','definitions']
-newx=''
+
 for x in data:
     if x not in ignore:
         answerdict[x]=data.getvalue(x)
-
+wrongdict={}
 numright=0
 for x in answerkey:
     if answerkey[x]==answerdict[x]:
         numright+=1
-
+    else:
+        wrongdict[x]=answerkey[x]
+print(wrongdict)
 #html+=str(data)+'<br>'+str(answerdict)+'<br>'+str(answerkey)
-html+="<p> Number Correct: "+str(numright)+"!</p>"
+html+="<p> Number Correct: "+str(numright)+"!</p><br><p>Keep Practicing:</p>"
 html+= HTML_FOOTER
 print(html)
