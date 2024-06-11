@@ -56,7 +56,7 @@ while len(termslist)>0:
 html+="""
 <form action='test1.py' method='GET'>
 """
-boxpair=0
+
 for x in scrambledict:
     html+="<h2>Term:"+x
     html+="<input type='text' name='"+x+"'><br>"
