@@ -25,11 +25,11 @@ HTML_FOOTER = """
 
 data = cgi.FieldStorage()
 if ('terms' in data):
-    terms = data['terms'].value
+    terms = data.getvalue('terms')
 else:
     terms='a,b,c,d'
 if ('definitions' in data):
-    definitions = data['definitions'].value
+    definitions = data.getvalue('definitions')
 else:
     definitions='1,2,3,4'
 html=HTML_HEADER
@@ -60,6 +60,8 @@ html+="""
 for x in scrambledict:
     html+="<h2>Term:"+x
     html+="<input type='text' name='"+x+"'><br>"
+html+="<input type='hidden' name='terms' value='"+terms+"'>"
+html+="<input type='hidden' name='definitions' value='"+definitions+"'>"
 html+="<input type='submit' name='submit'>"
 html+="</form>"
 

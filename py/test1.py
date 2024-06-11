@@ -26,34 +26,36 @@ html=HTML_HEADER
 data = cgi.FieldStorage()
 
 if ('terms' in data):
-    terms = data['terms'].value
+    terms = data.getvalue('terms')
 else:
     terms='a,b,c,d'
 if ('definitions' in data):
-    definitions = data['definitions'].value
+    definitions = data.getvalue('definitions')
 else:
     definitions='1,2,3,4'
 
 termslist=terms.split(',')
 deflist=definitions.split(',')
 e=0
-answerdict={}
+answerkey={}
 while e<len(termslist):
-    answerdict[termslist[e]]=deflist[e]
+    answerkey[termslist[e]]=deflist[e]
     e+=1
+
 data=cgi.FieldStorage()
-boxpair=0
+answerdict={}
+ignore=['submit','terms','definitions']
+newx=''
+for x in data:
+    if x not in ignore:
+        answerdict[x]=data.getvalue(x)
+
 numright=0
-while boxpair<len(termslist):
-    searchanswer=termslist[boxpair]
-    if (searchanswer in data):
-        searchanswer=data[searchanswer].value
-    else:
-        searchanswer='q'
-    if answerdict[termslist[boxpair]]==searchanswer:
+for x in answerkey:
+    if answerkey[x]==answerdict[x]:
         numright+=1
-    boxpair+=1
-html+=str(data)+'<br>'+str(terms)
+
+#html+=str(data)+'<br>'+str(answerdict)+'<br>'+str(answerkey)
 html+="<p> Number Correct: "+str(numright)+"!</p>"
 html+= HTML_FOOTER
 print(html)
